@@ -4,7 +4,7 @@ import com.google.gwt.core.shared.GwtIncompatible;
 
 public class TGS_GwtJdk {
 
-    //INSTANCE
+    //STATIC
     public static IOver of() {
         if (instance == null) {
             instance = new TGS_GwtJdk();
