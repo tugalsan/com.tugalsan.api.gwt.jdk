@@ -6,18 +6,18 @@ public class TGS_GwtJdk {
 
     //STATIC
     public static IOver of() {
-        if (instance == null) {
-            instance = new TGS_GwtJdk();
+        if (holder == null) {
+            holder = new TGS_GwtJdk();
         }
-        return instance.implementaion;
+        return holder.instance;
     }
-    private static volatile TGS_GwtJdk instance = null;
+    private static volatile TGS_GwtJdk holder = null;
 
-    //IMPLEMENTATION
+    //INSTANCE
     private TGS_GwtJdk() {
 
     }
-    final private IOver implementaion = new IOver();
+    final private IOver instance = new IOver();
 
     //OVERRIDE
     public static class IOver extends IGWT {
