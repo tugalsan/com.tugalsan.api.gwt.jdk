@@ -4,27 +4,52 @@ import com.google.gwt.core.shared.GwtIncompatible;
 
 public class TGS_GwtJdk {
 
+    //UserHappy
+    public static CommonCombined cmn() {
+        return of().cmn;
+    }
+
+    public static OnlyJre jre() {
+        return of().jre;
+    }
+
+    public static OnlyGwt gwt() {
+        return of().gwt;
+    }
+
     //MemoryHappy
-    private static JREHappy of() {
+    private static TGS_GwtJdk of() {
         if (holder == null) {
             holder = new TGS_GwtJdk();
         }
-        return holder.instance;
+        return holder;
     }
     private static volatile TGS_GwtJdk holder = null;
 
     private TGS_GwtJdk() {
 
     }
-    final private JREHappy instance = new JREHappy();
+    final public CommonCombined cmn = new CommonCombined();
+    final public OnlyJre jre = new OnlyJre();
+    final public OnlyGwt gwt = new OnlyGwt();
 
-    //StaticHappy
-    public static String hello(CharSequence name) {
-        return of().hello(name);
+    //OnlyGWTHappy
+    public static class OnlyGwt {
+
+        public static void onlyGwtCanUseMe() {
+        }
+    }
+
+    //OnlyJREHappy
+    public static class OnlyJre {
+
+        @GwtIncompatible
+        public static void onlyJreCanUseMe() {
+        }
     }
 
     //JREHappy
-    protected static class JREHappy extends GWTHappy {
+    protected static class CommonCombined extends CommonGwt {
 
         @Override
         @GwtIncompatible
@@ -34,7 +59,7 @@ public class TGS_GwtJdk {
     }
 
     //GWTHappy
-    protected static class GWTHappy {
+    protected static class CommonGwt {
 
         protected String hello(CharSequence name) {
             return "hello, " + name + " from client side";
