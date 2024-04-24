@@ -4,7 +4,7 @@
     <groupId>com.tugalsan</groupId>
     <artifactId>com.tugalsan.api.gwt.jdk</artifactId>
     <version>1.0-SNAPSHOT</version>
-    
+   
     <build>
         <resources> 
             <resource>
@@ -43,7 +43,7 @@
                 <version>3.12.1</version>
                 <configuration>
                     <release>22</release>
-                     <!--  <enablePreview>true</enablePreview>
+                    <!--  <enablePreview>true</enablePreview>
                     <compilerArgs>
                        <arg>- -add-modules</arg>
                         <arg>jdk.incubator.vector</arg>
@@ -54,6 +54,30 @@
         </plugins>
     </build>
     <dependencies>
+        <dependency>
+            <groupId>org.gwtproject</groupId>
+            <artifactId>gwt-user</artifactId><!--gwt-user ver2022.07.05 -->
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.jsinterop</groupId>
+                    <artifactId>jsinterop-annotations</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.validation</groupId>
+                    <artifactId>validation-api</artifactId>
+                </exclusion>                
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>javax.servlet-api</artifactId>
+                </exclusion>                
+                <exclusion>
+                    <groupId>org.w3c.css</groupId>
+                    <artifactId>sac</artifactId>
+                </exclusion>   
+            </exclusions>
+            <version>2.11.0</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <properties>
         <maven.compiler.release>22</maven.compiler.release>
