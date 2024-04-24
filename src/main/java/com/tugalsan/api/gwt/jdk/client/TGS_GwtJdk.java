@@ -4,15 +4,22 @@ import com.google.gwt.core.shared.GwtIncompatible;
 
 public class TGS_GwtJdk {
 
+    //STATIC
+    public static FullImplementation of() {
+        if (instance == null) {
+            instance = new TGS_GwtJdk();
+        }
+        return instance.full;
+    }
+    private static volatile TGS_GwtJdk instance = null;
+
+    //INSTANCE
     private TGS_GwtJdk() {
 
     }
-    final private FullImplementation instance = new FullImplementation();
+    final private FullImplementation full = new FullImplementation();
 
-    public static FullImplementation of() {
-        return new TGS_GwtJdk().instance;
-    }
-
+    //FULL
     public static class FullImplementation extends ClientImplementation {
 
         @Override
@@ -22,6 +29,7 @@ public class TGS_GwtJdk {
         }
     }
 
+    //GWT
     public static class ClientImplementation {
 
         public String hello(CharSequence name) {
