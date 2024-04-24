@@ -13,7 +13,7 @@ public class TGS_GwtJdk {
         return new TGS_GwtJdk().instance;
     }
 
-    private static class FullImplementation extends ClientImplementation {
+    public static class FullImplementation extends ClientImplementation {
 
         @Override
         @GwtIncompatible
@@ -22,7 +22,7 @@ public class TGS_GwtJdk {
         }
     }
 
-    private static class ClientImplementation {
+    public static class ClientImplementation {
 
         public String hello(CharSequence name) {
             return "hello, " + name + " from client side";
