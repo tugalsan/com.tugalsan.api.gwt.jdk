@@ -4,8 +4,8 @@ import com.google.gwt.core.shared.GwtIncompatible;
 
 public class TGS_GwtJdk {
 
-    //STATIC
-    public static IOver of() {
+    //INSTANCE
+    private static IOver of() {
         if (holder == null) {
             holder = new TGS_GwtJdk();
         }
@@ -13,26 +13,30 @@ public class TGS_GwtJdk {
     }
     private static volatile TGS_GwtJdk holder = null;
 
-    //INSTANCE
     private TGS_GwtJdk() {
 
     }
     final private IOver instance = new IOver();
 
+    //COMBINER
+    public static String hello(CharSequence name) {
+        return of().hello(name);
+    }
+
     //OVERRIDE
-    public static class IOver extends IGWT {
+    protected static class IOver extends IGWT {
 
         @Override
         @GwtIncompatible
-        public String hello(CharSequence name) {
+        protected String hello(CharSequence name) {
             return "Hello, %s from server side".formatted(name);
         }
     }
 
     //GWT
-    public static class IGWT {
+    protected static class IGWT {
 
-        public String hello(CharSequence name) {
+        protected String hello(CharSequence name) {
             return "hello, " + name + " from client side";
         }
     }
