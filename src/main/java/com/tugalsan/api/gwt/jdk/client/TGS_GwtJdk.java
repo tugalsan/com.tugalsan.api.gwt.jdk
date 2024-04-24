@@ -49,7 +49,7 @@ public class TGS_GwtJdk {
     }
 
     //Common
-    protected static class Common extends CommonGwt {
+    public static class Common extends CommonGwt {
 
         @Override
         @GwtIncompatible
@@ -59,7 +59,7 @@ public class TGS_GwtJdk {
     }
 
     //CommonGwt
-    protected static class CommonGwt {
+    public static class CommonGwt {
 
         protected String hello(CharSequence name) {
             return "hello, " + name + " from client side";
