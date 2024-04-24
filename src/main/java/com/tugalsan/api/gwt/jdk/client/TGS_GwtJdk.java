@@ -53,7 +53,7 @@ public class TGS_GwtJdk {
 
         @Override
         @GwtIncompatible
-        protected String hello(CharSequence name) {
+        public String hello(CharSequence name) {
             return "Hello, %s from server side".formatted(name);
         }
     }
@@ -61,7 +61,7 @@ public class TGS_GwtJdk {
     //CommonGwt
     public static class CommonGwt {
 
-        protected String hello(CharSequence name) {
+        public String hello(CharSequence name) {
             return "hello, " + name + " from client side";
         }
     }
