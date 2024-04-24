@@ -5,20 +5,20 @@ import com.google.gwt.core.shared.GwtIncompatible;
 public class TGS_GwtJdk {
 
     //UserHappy
-    public static CommonCombined cmn() {
-        return of().cmn;
+    public static Common cmn() {
+        return memoryHappy().cmn;
     }
 
-    public static OnlyJre jre() {
-        return of().jre;
+    public static OnlyJreHappy jre() {
+        return memoryHappy().jre;
     }
 
-    public static OnlyGwt gwt() {
-        return of().gwt;
+    public static OnlyGwtHappy gwt() {
+        return memoryHappy().gwt;
     }
 
     //MemoryHappy
-    private static TGS_GwtJdk of() {
+    private static TGS_GwtJdk memoryHappy() {
         if (holder == null) {
             holder = new TGS_GwtJdk();
         }
@@ -29,27 +29,27 @@ public class TGS_GwtJdk {
     private TGS_GwtJdk() {
 
     }
-    final public CommonCombined cmn = new CommonCombined();
-    final public OnlyJre jre = new OnlyJre();
-    final public OnlyGwt gwt = new OnlyGwt();
+    final public Common cmn = new Common();
+    final public OnlyJreHappy jre = new OnlyJreHappy();
+    final public OnlyGwtHappy gwt = new OnlyGwtHappy();
 
-    //OnlyGWTHappy
-    public static class OnlyGwt {
+    //OnlyGwtHappy
+    public static class OnlyGwtHappy {
 
         public static void onlyGwtCanUseMe() {
         }
     }
 
-    //OnlyJREHappy
-    public static class OnlyJre {
+    //OnlyJreHappy
+    public static class OnlyJreHappy {
 
         @GwtIncompatible
         public static void onlyJreCanUseMe() {
         }
     }
 
-    //JREHappy
-    protected static class CommonCombined extends CommonGwt {
+    //Common
+    protected static class Common extends CommonGwt {
 
         @Override
         @GwtIncompatible
@@ -58,7 +58,7 @@ public class TGS_GwtJdk {
         }
     }
 
-    //GWTHappy
+    //CommonGwt
     protected static class CommonGwt {
 
         protected String hello(CharSequence name) {
