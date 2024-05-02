@@ -29,9 +29,9 @@ public class TGS_GwtJdk {
     private TGS_GwtJdk() {
 
     }
-    final public Common cmn = new Common();
-    final public OnlyJreHappy jre = new OnlyJreHappy();
-    final public OnlyGwtHappy gwt = new OnlyGwtHappy();
+    final private Common cmn = new Common();
+    final private OnlyJreHappy jre = new OnlyJreHappy();
+    final private OnlyGwtHappy gwt = new OnlyGwtHappy();
 
     //OnlyGwtHappy
     public static class OnlyGwtHappy {
