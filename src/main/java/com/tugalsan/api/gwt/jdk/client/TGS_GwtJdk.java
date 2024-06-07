@@ -36,15 +36,15 @@ public class TGS_GwtJdk {
     //OnlyGwtHappy
     public static class OnlyGwtHappy {
 
-        public static void onlyGwtCanUseMe() {
-        }
+        public static native void println(CharSequence text) /*-{console.log(String(text));}-*/;
     }
 
     //OnlyJreHappy
     public static class OnlyJreHappy {
 
         @GwtIncompatible
-        public static void onlyJreCanUseMe() {
+        public static void println(CharSequence text) {
+            System.out.println(text);
         }
     }
 
@@ -53,16 +53,16 @@ public class TGS_GwtJdk {
 
         @Override
         @GwtIncompatible
-        public String hello(CharSequence name) {
-            return "Hello, %s from server side".formatted(name);
+        public void println(CharSequence name) {
+            OnlyJreHappy.println(name);
         }
     }
 
     //CommonGwt
     public static class CommonGwt {
 
-        public String hello(CharSequence name) {
-            return "hello, " + name + " from client side";
+        public void println(CharSequence name) {
+            OnlyGwtHappy.println(name);
         }
     }
 }
