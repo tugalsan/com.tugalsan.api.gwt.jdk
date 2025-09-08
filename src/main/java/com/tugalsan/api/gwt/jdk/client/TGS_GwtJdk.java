@@ -3,7 +3,7 @@ package com.tugalsan.api.gwt.jdk.client;
 import com.google.gwt.core.shared.GwtIncompatible;
 
 public class TGS_GwtJdk {
-
+    
     //UserHappy
     public static Common cmn() {
         return memoryHappy().cmn;
