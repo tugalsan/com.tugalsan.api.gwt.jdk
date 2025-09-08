@@ -41,6 +41,13 @@ public class StableValue<T> {
         return value;
     }
 
+    public T orElseSet(Supplier<? extends T> supplier) {
+        if (value == null) {
+            return supplier.get();
+        }
+        return value;
+    }
+
     public T orElseThrow() {
         if (value == null) {
             throw new NoSuchElementException();
