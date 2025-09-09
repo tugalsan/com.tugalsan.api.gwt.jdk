@@ -14,7 +14,11 @@ public class TGC_StableSupplier<T> implements Supplier<T> {
     @Override
     public T get() {
         if (value == null) {
-            value = supplier.get();
+            synchronized (this) {
+                if (value == null) {
+                    value = supplier.get();
+                }
+            }
         }
         return value;
     }

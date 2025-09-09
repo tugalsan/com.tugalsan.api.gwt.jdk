@@ -13,17 +13,10 @@ import java.util.function.Supplier;
 //https://stackoverflow.com/questions/78271237/adding-standard-java-classes-that-are-missing-in-gwt
 public class StableValue<T> {
 
-    private StableValue(T value) {
-        this.value = value;
-    }
     private volatile T value;
 
     public static <T> StableValue<T> of() {
-        return new StableValue(null);
-    }
-
-    public static <T> StableValue<T> of(T value) {
-        return new StableValue(value);
+        return new StableValue();
     }
 
     public boolean trySet(T contents) {
