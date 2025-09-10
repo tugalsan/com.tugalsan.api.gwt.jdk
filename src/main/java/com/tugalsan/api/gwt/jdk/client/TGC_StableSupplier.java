@@ -12,13 +12,13 @@ public class TGC_StableSupplier<T> implements Supplier<T> {
     }
 
     @Override
-    public T get() {
+    public T get() {//GWT IS SINGLE THREAD
         if (value == null) {
-            synchronized (this) {
-                if (value == null) {
-                    value = supplier.get();
-                }
-            }
+//            synchronized (this) {
+//                if (value == null) {
+            value = supplier.get();
+//                }
+//            }
         }
         return value;
     }
